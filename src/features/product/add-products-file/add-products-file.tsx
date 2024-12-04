@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { findAll, setIsLoading } from '@/entities/product/model/slice'
 import { delay } from '@/shared/lib/delay'
 import { xmlParser } from '@/entities/product/lib/xml-parser'
@@ -49,9 +49,7 @@ export function AddProductsFile(): JSX.Element {
 					<>
 						<span className={styles.fileText}>Загружено 100 наименований</span>
 
-						<Button type='button' onClick={() => navigate('/car-lift-demo')}>
-							Перейти в каталог
-						</Button>
+						<Link to='/car-lift-demo/'>Перейти в каталог</Link>
 					</>
 				) : null}
 				{isLoading && <CircularProgress />}
